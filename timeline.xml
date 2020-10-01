@@ -1,0 +1,309 @@
+<timeline>
+
+	<tile>
+		<!-- Specifies type of tile, either static or choice -->
+		<type>static</type>		
+		
+		<!-- File path to tile's icon -->
+		<name>A Golden Chalice</name>
+		
+		<!-- A list of videos to play when arriving at this tile. -->
+		<!-- Choice of video depends on choiceChosen for given choiceID -->
+		<videos>
+			<video>
+				<path></path>
+				<condition>
+					<choiceID></choiceID>
+					<choiceChosen></choiceChosen>
+				</condition>
+				<condition>
+					<choiceID></choiceID>
+					<choiceChosen></choiceChosen>
+				</condition>
+			</video>
+		</videos>
+	</tile>
+
+	<tile>
+		<type>choice</type>	
+		
+		<!-- File path to tile's icon -->
+		<name>A Choice of Setting</name>
+
+
+		 <!-- A list of choices to be arranged vertically --> 
+		<choices>
+			<choice>
+				<name>Restaurant</name>
+				<!-- File path to tile's icon -->
+				<iconPath></iconPath>
+				
+				<!-- A list of videos to play when arriving at this tile. 
+				Choice of video depends on choiceChosen for given choiceID -->
+				<videos>
+					<video>
+						<path></path>
+						<choiceID></choiceID>
+						<choiceChosen></choiceChosen>
+					</video>
+				</videos>	
+			
+			</choice>
+
+			<choice>
+				<name>Cafe</name>
+				<!-- File path to tile's icon -->
+				<iconPath></iconPath>
+				
+				<!-- A list of videos to play when arriving at this tile. 
+				Choice of video depends on choiceChosen for given choiceID -->
+				<videos>
+					<video>
+						<path></path>
+						<choiceID></choiceID>
+						<choiceChosen></choiceChosen>
+					</video>
+				</videos>	
+			</choice>
+
+			<choice>
+				<name>Bodega</name>
+				<!-- File path to tile's icon -->
+				<iconPath></iconPath>
+				
+				<!-- A list of videos to play when arriving at this tile. 
+				Choice of video depends on choiceChosen for given choiceID -->
+				<videos>
+					<video>
+						<path></path>
+						<choiceID></choiceID>
+						<choiceChosen></choiceChosen>
+					</video>
+				</videos>	
+			</choice>
+
+			<choice>
+				<name>Diner</name>
+				<!-- File path to tile's icon -->
+				<iconPath></iconPath>
+				
+				<!-- A list of videos to play when arriving at this tile. 
+				Choice of video depends on choiceChosen for given choiceID -->
+				<videos>
+					<video>
+						<path></path>
+						<choiceID></choiceID>
+						<choiceChosen></choiceChosen>
+					</video>
+				</videos>	
+			</choice>
+
+		</choices>
+	</tile>
+
+	<tile>
+		<!-- Specifies type of tile, either static or choice -->
+		<type>static</type>		
+		
+		<!-- File path to tile's icon -->
+		<name>Another Scene</name>
+		
+		<!-- A list of videos to play when arriving at this tile. -->
+		<!-- Choice of video depends on choiceChosen for given choiceID -->
+		<videos>
+			<video>
+				<path></path>
+				<condition>
+					<choiceID></choiceID>
+					<choiceChosen></choiceChosen>
+				</condition>
+				<condition>
+					<choiceID></choiceID>
+					<choiceChosen></choiceChosen>
+				</condition>
+			</video>
+		</videos>
+	</tile>
+
+	<tile>
+		<!-- Specifies type of tile, either static or choice -->
+		<type>static</type>		
+		
+		<!-- File path to tile's icon -->
+		<name>A Silver Goblet</name>
+		
+		<!-- A list of videos to play when arriving at this tile. -->
+		<!-- Choice of video depends on choiceChosen for given choiceID -->
+		<videos>
+			<video>
+				<path></path>
+				<condition>
+					<choiceID></choiceID>
+					<choiceChosen></choiceChosen>
+				</condition>
+				<condition>
+					<choiceID></choiceID>
+					<choiceChosen></choiceChosen>
+				</condition>
+			</video>
+		</videos>
+	</tile>
+
+	<tile>
+		<type>choice</type>	
+		
+		<!-- File path to tile's icon -->
+		<name>A Choice of Ice Creme</name>
+
+
+		 <!-- A list of choices to be arranged vertically --> 
+		<choices>
+			<choice>
+				<name>Vanilla</name>
+				<!-- File path to tile's icon -->
+				<iconPath></iconPath>
+				
+				<!-- A list of videos to play when arriving at this tile. 
+				Choice of video depends on choiceChosen for given choiceID -->
+				<videos>
+					<video>
+						<path></path>
+						<choiceID></choiceID>
+						<choiceChosen></choiceChosen>
+					</video>
+				</videos>	
+			
+			</choice>
+
+			<choice>
+				<name>Chocolate</name>
+				<!-- File path to tile's icon -->
+				<iconPath></iconPath>
+				
+				<!-- A list of videos to play when arriving at this tile. 
+				Choice of video depends on choiceChosen for given choiceID -->
+				<videos>
+					<video>
+						<path></path>
+						<choiceID></choiceID>
+						<choiceChosen></choiceChosen>
+					</video>
+				</videos>	
+			
+			</choice>
+
+		</choices>
+	</tile>
+
+	<tile>
+		<!-- Specifies type of tile, either static or choice -->
+		<type>static</type>		
+		
+		<!-- File path to tile's icon -->
+		<name>A Broken Abacus</name>
+		
+		<!-- A list of videos to play when arriving at this tile. -->
+		<!-- Choice of video depends on choiceChosen for given choiceID -->
+		<videos>
+			<video>
+				<path></path>
+				<condition>
+					<choiceID></choiceID>
+					<choiceChosen></choiceChosen>
+				</condition>
+				<condition>
+					<choiceID></choiceID>
+					<choiceChosen></choiceChosen>
+				</condition>
+			</video>
+		</videos>
+	</tile>
+
+
+	<tile>
+		<!-- Specifies type of tile, either static or choice -->
+		<type>static</type>		
+		
+		<!-- File path to tile's icon -->
+		<name>And Yet Another</name>
+		
+		<!-- A list of videos to play when arriving at this tile. -->
+		<!-- Choice of video depends on choiceChosen for given choiceID -->
+		<videos>
+			<video>
+				<path></path>
+				<condition>
+					<choiceID></choiceID>
+					<choiceChosen></choiceChosen>
+				</condition>
+				<condition>
+					<choiceID></choiceID>
+					<choiceChosen></choiceChosen>
+				</condition>
+			</video>
+		</videos>
+	</tile>
+
+	<tile>
+		<type>choice</type>	
+		
+		<!-- File path to tile's icon -->
+		<name>A Choice of Sports</name>
+
+
+		 <!-- A list of choices to be arranged vertically --> 
+		<choices>
+			<choice>
+				<name>Soccer</name>
+				<!-- File path to tile's icon -->
+				<iconPath></iconPath>
+				
+				<!-- A list of videos to play when arriving at this tile. 
+				Choice of video depends on choiceChosen for given choiceID -->
+				<videos>
+					<video>
+						<path></path>
+						<choiceID></choiceID>
+						<choiceChosen></choiceChosen>
+					</video>
+				</videos>	
+			
+			</choice>
+
+			<choice>
+				<name>Football</name>
+				<!-- File path to tile's icon -->
+				<iconPath></iconPath>
+				
+				<!-- A list of videos to play when arriving at this tile. 
+				Choice of video depends on choiceChosen for given choiceID -->
+				<videos>
+					<video>
+						<path></path>
+						<choiceID></choiceID>
+						<choiceChosen></choiceChosen>
+					</video>
+				</videos>	
+			
+			</choice>
+
+			<choice>
+				<name>Basketball</name>
+				<!-- File path to tile's icon -->
+				<iconPath></iconPath>
+				
+				<!-- A list of videos to play when arriving at this tile. 
+				Choice of video depends on choiceChosen for given choiceID -->
+				<videos>
+					<video>
+						<path></path>
+						<choiceID></choiceID>
+						<choiceChosen></choiceChosen>
+					</video>
+				</videos>	
+			
+			</choice>
+		</choices>
+	</tile>
+
+</timeline>
