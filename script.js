@@ -1,10 +1,4 @@
-/* 
-TODO
-	Parse xml into javascript objects.
-	Append objects to array. 
-	Create draw functions for static and choice tiles
-*/
-
+// Global variables
 var choiceHistory = new Array();	// Key value pair; choiceIDs and choiceChosen
 var icons = new Array(); 			// Handle icon loading
 
@@ -12,16 +6,19 @@ var c;								// Handle to html canvas
 var parser;
 var xmlTimeline;
 var videoQueue;
+var queueIndex = 0;
 var playhead = new fabric.Circle();
+var isPlaying = false;
 
 var tilePadding = 10;
 var tileSize;
 var tileWrapper;
+var timelineTopRatio = 0.75;
 var tileColor = "#c6ced0";
 var playheadColor = "#fdfdfd";
 var playStopColor = "#cecece";
 
-var relivingLastNight = "<timeline><tile><!-- Specifies type of tile, either static or choice --><type>static</type>		<!-- File path to tile's icon --><name>Awaken</name><!-- A list of videos to play when arriving at this tile. --><!-- Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/AWAKING.mp4</path></video></videos></tile><tile><!-- Specifies type of tile, either static or choice --><type>static</type>		<!-- File path to tile's icon --><name>A Choice of Dress</name><!-- A list of videos to play when arriving at this tile. --><!-- Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/BCLOTHE.mp4</path></video></videos></tile><tile><type>choice</type>	<!-- File path to tile's icon --><name>Greeting Nick</name><!-- A list of choices to be arranged vertically --> <choices><choice><name>Dress</name><!-- File path to tile's icon --><iconPath>./assets/images/RLN_dress_large.png</iconPath><!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/BCLOTHED.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition></video></videos>	<choiceID>0</choiceID><choiceChosen>0</choiceChosen></choice><choice><name>Sweater</name><!-- File path to tile's icon --><iconPath>./assets/images/RLN_sweater_large.png</iconPath><!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/BCLOTHEC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition></video></videos><choiceID>0</choiceID><choiceChosen>1</choiceChosen>			</choice></choices></tile><tile><!-- Specifies type of tile, either static or choice --><type>static</type>		<!-- File path to tile's icon --><name>A Choice of Drink</name><!-- A list of videos to play when arriving at this tile. --><!-- Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/CDRINKD.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition></video><video><path>./assets/videos/CDRINKC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition></video></videos></tile><tile><type>choice</type>	<!-- File path to tile's icon --><name>Picking a Drink</name><!-- A list of choices to be arranged vertically --> <choices><choice><name>Coke</name><!-- File path to tile's icon --><iconPath>./assets/images/RLN_coke_large.png</iconPath><!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/DDRINKDC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>						</video><video><path>./assets/videos/DDRINKCC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>						</video></videos>	<choiceID>1</choiceID><choiceChosen>0</choiceChosen></choice><choice><name>Vodka</name><!-- File path to tile's icon --><iconPath>./assets/images/RLN_vodka_large.png</iconPath><!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/DDRINKDV.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>						</video><video><path>./assets/videos/DDRINKCV.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>						</video></videos>	<choiceID>1</choiceID><choiceChosen>1</choiceChosen></choice></choices></tile><tile><!-- Specifies type of tile, either static or choice --><type>static</type>		<!-- File path to tile's icon --><name>Chatting</name><!-- A list of videos to play when arriving at this tile. --><!-- Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/ECHATD.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition>				</video><video><path>./assets/videos/ECHATC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition>				</video></videos></tile><tile><!-- Specifies type of tile, either static or choice --><type>static</type>		<!-- File path to tile's icon --><name>More Chatting</name><!-- A list of videos to play when arriving at this tile. --><!-- Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/FCHATCC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition>				<condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>				</video><video><path>./assets/videos/FCHATCV.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition>				<condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>				</video><video><path>./assets/videos/FCHATDC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition>				<condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>				</video><video><path>./assets/videos/FCHATDV.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition>				<condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>				</video></videos></tile><tile><!-- Specifies type of tile, either static or choice --><type>static</type>		<!-- File path to tile's icon --><name>A Choice of Music</name><!-- A list of videos to play when arriving at this tile. --><!-- Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/GMUSICC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition>				</video><video><path>./assets/videos/GMUSICD.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition>				</video></videos></tile><tile><type>choice</type>	<!-- File path to tile's icon --><name>Picking Music</name><!-- A list of choices to be arranged vertically --> <choices><choice><name>Gigolo</name><!-- File path to tile's icon --><iconPath>./assets/images/RLN_gigolo_large.png</iconPath><!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/ICVG.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>		<condition><choiceID>2</choiceID><choiceChosen>0</choiceChosen></condition>		</video><video><path>./assets/videos/ICCG.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>2</choiceID><choiceChosen>0</choiceChosen></condition>							</video>	<video><path>./assets/videos/IDCG.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>2</choiceID><choiceChosen>0</choiceChosen></condition>							</video>				<video><path>./assets/videos/IDVG.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>2</choiceID><choiceChosen>0</choiceChosen></condition>							</video>	</videos>	<choiceID>2</choiceID><choiceChosen>0</choiceChosen>			</choice><choice><name>Kiss</name><!-- File path to tile's icon --><iconPath>./assets/images/RLN_kiss_large.png</iconPath><!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/IDCK.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>						<condition><choiceID>2</choiceID><choiceChosen>1</choiceChosen></condition>		</video><video><path>./assets/videos/IDVK.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>						<condition><choiceID>2</choiceID><choiceChosen>1</choiceChosen></condition>		</video><video><path>./assets/videos/ICCK.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>						<condition><choiceID>2</choiceID><choiceChosen>1</choiceChosen></condition>		</video><video><path>./assets/videos/ICVK.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>						<condition><choiceID>2</choiceID><choiceChosen>1</choiceChosen></condition>		</video></videos>	<choiceID>2</choiceID><choiceChosen>0</choiceChosen>			</choice></choices></tile><tile><!-- Specifies type of tile, either static or choice --><type>static</type>		<!-- File path to tile's icon --><name>Finale</name><!-- A list of videos to play when arriving at this tile. --><!-- Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/JFINALEA.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition>	<condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>				</video><video><path>./assets/videos/JFINALEN.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition>				<condition><choiceID>2</choiceID><choiceChosen>0</choiceChosen></condition>	</video><video><path>./assets/videos/JFINALEC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition>				<condition><choiceID>2</choiceID><choiceChosen>1</choiceChosen></condition>	</video><video><path>./assets/videos/JFINALEC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition>				<condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>	<condition><choiceID>2</choiceID><choiceChosen>0</choiceChosen></condition>	</video><video><path>./assets/videos/JFINALENA.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition>				<condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>	<condition><choiceID>2</choiceID><choiceChosen>1</choiceChosen></condition>	</video></videos></tile></timeline>";
+var relivingLastNight = "<timeline><tile><!-- Specifies type of tile, either static or choice --><type>static</type>		<!-- File path to tile's icon --><name>Awakening</name><!-- A list of videos to play when arriving at this tile. --><!-- Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/AWAKING.mp4</path></video></videos></tile><tile><!-- Specifies type of tile, either static or choice --><type>static</type>		<!-- File path to tile's icon --><name>A Choice of Dress</name><!-- A list of videos to play when arriving at this tile. --><!-- Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/BCLOTHE.mp4</path></video></videos></tile><tile><type>choice</type>	<!-- File path to tile's icon --><name>Greeting Nick</name><!-- A list of choices to be arranged vertically --> <choices><choice><name>Dress</name><!-- File path to tile's icon --><iconPath>./assets/images/RLN_dress_large.png</iconPath><!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/BCLOTHED.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition></video></videos>	<choiceID>0</choiceID><choiceChosen>0</choiceChosen></choice><choice><name>Sweater</name><!-- File path to tile's icon --><iconPath>./assets/images/RLN_sweater_large.png</iconPath><!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/BCLOTHEC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition></video></videos><choiceID>0</choiceID><choiceChosen>1</choiceChosen>			</choice></choices></tile><tile><!-- Specifies type of tile, either static or choice --><type>static</type>		<!-- File path to tile's icon --><name>A Choice of Drink</name><!-- A list of videos to play when arriving at this tile. --><!-- Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/CDRINKD.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition></video><video><path>./assets/videos/CDRINKC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition></video></videos></tile><tile><type>choice</type>	<!-- File path to tile's icon --><name>Picking a Drink</name><!-- A list of choices to be arranged vertically --> <choices><choice><name>Coke</name><!-- File path to tile's icon --><iconPath>./assets/images/RLN_coke_large.png</iconPath><!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/DDRINKDC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>						</video><video><path>./assets/videos/DDRINKCC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>						</video></videos>	<choiceID>1</choiceID><choiceChosen>0</choiceChosen></choice><choice><name>Vodka</name><!-- File path to tile's icon --><iconPath>./assets/images/RLN_vodka_large.png</iconPath><!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/DDRINKDV.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>						</video><video><path>./assets/videos/DDRINKCV.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>						</video></videos>	<choiceID>1</choiceID><choiceChosen>1</choiceChosen></choice></choices></tile><tile><!-- Specifies type of tile, either static or choice --><type>static</type>		<!-- File path to tile's icon --><name>Chatting</name><!-- A list of videos to play when arriving at this tile. --><!-- Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/ECHATD.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition>				</video><video><path>./assets/videos/ECHATC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition>				</video></videos></tile><tile><!-- Specifies type of tile, either static or choice --><type>static</type>		<!-- File path to tile's icon --><name>More Chatting</name><!-- A list of videos to play when arriving at this tile. --><!-- Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/FCHATCC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition>				<condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>				</video><video><path>./assets/videos/FCHATCV.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition>				<condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>				</video><video><path>./assets/videos/FCHATDC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition>				<condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>				</video><video><path>./assets/videos/FCHATDV.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition>				<condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>				</video></videos></tile><tile><!-- Specifies type of tile, either static or choice --><type>static</type>		<!-- File path to tile's icon --><name>A Choice of Music</name><!-- A list of videos to play when arriving at this tile. --><!-- Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/GMUSICC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition>				</video><video><path>./assets/videos/GMUSICD.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition>				</video></videos></tile><tile><type>choice</type>	<!-- File path to tile's icon --><name>Picking Music</name><!-- A list of choices to be arranged vertically --> <choices><choice><name>Gigolo</name><!-- File path to tile's icon --><iconPath>./assets/images/RLN_gigolo_large.png</iconPath><!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/ICVG.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>		<condition><choiceID>2</choiceID><choiceChosen>0</choiceChosen></condition>		</video><video><path>./assets/videos/ICCG.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>2</choiceID><choiceChosen>0</choiceChosen></condition>							</video>	<video><path>./assets/videos/IDCG.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition><condition><choiceID>2</choiceID><choiceChosen>0</choiceChosen></condition>							</video>				<video><path>./assets/videos/IDVG.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>2</choiceID><choiceChosen>0</choiceChosen></condition>							</video>	</videos>	<choiceID>2</choiceID><choiceChosen>0</choiceChosen>			</choice><choice><name>Kiss</name><!-- File path to tile's icon --><iconPath>./assets/images/RLN_kiss_large.png</iconPath><!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/IDCK.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>						<condition><choiceID>2</choiceID><choiceChosen>1</choiceChosen></condition>		</video><video><path>./assets/videos/IDVK.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>						<condition><choiceID>2</choiceID><choiceChosen>1</choiceChosen></condition>		</video><video><path>./assets/videos/ICCK.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>						<condition><choiceID>2</choiceID><choiceChosen>1</choiceChosen></condition>		</video><video><path>./assets/videos/ICVK.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition><condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>						<condition><choiceID>2</choiceID><choiceChosen>1</choiceChosen></condition>		</video></videos>	<choiceID>2</choiceID><choiceChosen>0</choiceChosen>			</choice></choices></tile><tile><!-- Specifies type of tile, either static or choice --><type>static</type>		<!-- File path to tile's icon --><name>Finale</name><!-- A list of videos to play when arriving at this tile. --><!-- Choice of video depends on choiceChosen for given choiceID --><videos><video><path>./assets/videos/JFINALEA.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition>	<condition><choiceID>1</choiceID><choiceChosen>0</choiceChosen></condition>				</video><video><path>./assets/videos/JFINALEN.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition>				<condition><choiceID>2</choiceID><choiceChosen>0</choiceChosen></condition>	</video><video><path>./assets/videos/JFINALEC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>1</choiceChosen></condition>				<condition><choiceID>2</choiceID><choiceChosen>1</choiceChosen></condition>	</video><video><path>./assets/videos/JFINALEC.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition>				<condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>	<condition><choiceID>2</choiceID><choiceChosen>0</choiceChosen></condition>	</video><video><path>./assets/videos/JFINALENA.mp4</path><condition><choiceID>0</choiceID><choiceChosen>0</choiceChosen></condition>				<condition><choiceID>1</choiceID><choiceChosen>1</choiceChosen></condition>	<condition><choiceID>2</choiceID><choiceChosen>1</choiceChosen></condition>	</video></videos></tile></timeline>";
 
 // Initialization
 function init(){
@@ -43,11 +40,11 @@ function init(){
 	//reader.addEventListener('load', (event) => {
 
 		//Once done, resize canvas to fit window and remove file input
-		c.setHeight(window.innerHeight * (2 / 3));		
+		c.setHeight(window.innerHeight * (1 / 2));		
 		
 		document.getElementById("file-selector").style.display = "none";
 		
-		document.getElementById("video").height = window.innerHeight / 3;
+		document.getElementById("video").height = window.innerHeight / 2;
 		document.getElementById("video").style.display = "block";
 
 		// Parse XML Timeline
@@ -137,7 +134,7 @@ function drawTimeline(xml){
 			var rect = new fabric.Rect({
 				left: (tileWrapper * i) + tilePadding,
 				originY: "center",
-				top: c.height / 2,
+				top: c.height * timelineTopRatio,
 				fill: tileColor,
 				width: tileSize,
 				height: tileSize,
@@ -157,7 +154,7 @@ function drawTimeline(xml){
 			var label = new fabric.Textbox(label, {
 			  	left: (tileWrapper * i) + (tilePadding * 2),
 				originY: "top",
-				top: (c.height / 2) - (tileSize / 3) + tilePadding,
+				top: (c.height * timelineTopRatio) - (tileSize / 3) + tilePadding,
 			  	fontSize: 14,
 			  	fill: '#111',
 			  	width: tileSize - (tilePadding * 2),
@@ -165,6 +162,20 @@ function drawTimeline(xml){
 			  	fontFamily: "Helvetica",
 			  	hoverCursor: "default",
 			  	selectable: false
+			});
+
+			// If object clicked, update queueIndex and play
+			rect.on({
+				"mousedblclick": function(e){
+					console.log("tapped " + Math.floor(e.target.left/ tileWrapper));
+
+					
+					queueIndex = Math.floor(e.target.left/ tileWrapper);
+					createVideoQueue();
+					playVideo();	
+					
+					
+				}
 			});
 
 			// Add fabric tile object to array
@@ -181,7 +192,7 @@ function drawTimeline(xml){
 				width: tileSize,
 				height: tileSize * choicesArray.length * 2,
 				left: (tileWrapper * i) + tilePadding,
-				top: c.height / 2,
+				top: c.height * timelineTopRatio,
 				originY: "center",
 				lockMovementX: true,
 				hasControls: false,
@@ -236,11 +247,12 @@ function drawTimeline(xml){
 			}
 
 			// Saving default choices
-			var whichChoice = i; //Math.floor(verticalGroup.left / tileWrapper);
+			var whichChoice = i; 
 			choiceHistory.push({id: whichChoice, choiceName: label, numChoices: choicesArray.length, choiceChosen: 0});
 
+			// When verticalGroup modified, animate to selection and save choice
 			verticalGroup.on({
-				"mouseup": function(e){
+				"moved": function(e){
 					
 					if (e.target) {
 						
@@ -248,7 +260,7 @@ function drawTimeline(xml){
 						var whichChoice = Math.floor(e.target.left/ tileWrapper);
 
 						// Calculates which tile is selected for given choice
-						var tileTop = (((e.target.top) - (c.height / 2)) / tileSize); 
+						var tileTop = (((e.target.top) - (c.height * timelineTopRatio)) / tileSize); 
 						var whichTile = (tileTop % 1 > 0.5) ? Math.floor(tileTop) + 1 : Math.floor(tileTop);
 
 						// Getting number of choices available 
@@ -258,7 +270,7 @@ function drawTimeline(xml){
 						else if (whichTile < 0) { whichTile = 0; }
 
 						// Animation
-						var top = (c.height  / 2) + (tileSize * whichTile);
+						var top = (c.height  * timelineTopRatio) + (tileSize * whichTile);
 						e.target.animate(
 							'top', 
 							top,
@@ -275,6 +287,19 @@ function drawTimeline(xml){
 						console.log(choiceHistory);
 
 					}
+					
+				}
+			});
+
+			verticalGroup.on({
+				"mousedblclick": function(e){
+					console.log("tapped " + Math.floor(e.target.left/ tileWrapper));
+
+					
+					queueIndex = Math.floor(e.target.left/ tileWrapper);
+					createVideoQueue();
+					playVideo();	
+					
 					
 				}
 			});
@@ -296,7 +321,7 @@ function drawTimeline(xml){
 
 function drawPlayStopButton() {
 	
-	var top = 0.1; 
+	var top = 45; 
 
 	drawPlayhead();
 
@@ -304,13 +329,13 @@ function drawPlayStopButton() {
 	var triangle = new fabric.Triangle({
 		originY: "center",
 		originX: "center",
-    	width: 30, height: 30, left: c.width/2 - 50, top: c.height * (top), fill: '#fff'
+    	width: 30, height: 30, left: c.width/2 - 50, top: top, fill: '#fff'
   	});
 
   	var circle = new fabric.Circle({
   		originY: "center",
 		originX: "center",
-    	radius: 35, left: c.width/2 - 50, top: c.height * (top), fill: playStopColor
+    	radius: 35, left: c.width/2 - 50, top: top, fill: playStopColor
   	});
   	circle.set('shadow', new fabric.Shadow({
 		blur: 10,
@@ -338,14 +363,14 @@ function drawPlayStopButton() {
   	c.bringToFront(playButton);
 
   	playButton.on({"mouseup": function(e) {
-  		createVideoQueue();
+  		playVideo();
 	}});
 
 	// Stop button
 	var circleStop = new fabric.Circle({
   		originY: "center",
 		originX: "center",
-    	radius: 35, left: c.width/2 + 50, top: c.height * (top), fill: playStopColor
+    	radius: 35, left: c.width/2 + 50, top: top, fill: playStopColor
   	});
   	circleStop.set('shadow', new fabric.Shadow({
 		blur: 10,
@@ -357,7 +382,7 @@ function drawPlayStopButton() {
 	var rect = new fabric.Rect({
   		originY: "center",
 		originX: "center",
-    	width: 25, height: 25, left: c.width/2 + 50, top: c.height * (top), fill: '#fff'
+    	width: 25, height: 25, left: c.width/2 + 50, top: top, fill: '#fff'
   	});
   	rect.set('shadow', new fabric.Shadow({
 		blur: 10,
@@ -384,8 +409,6 @@ function drawPlayStopButton() {
 }
 
 function createVideoQueue() {
-	console.log(xmlTimeline.getElementsByTagName("tile"));
-
 	var timeline = xmlTimeline.getElementsByTagName("tile");
 	var videoPaths = new Array(); 
 	var videoIndex = 0;
@@ -474,15 +497,17 @@ function createVideoQueue() {
 	console.log(videoPaths);
 	videoQueue = videoPaths;	
 
-	playVideo();
+	//playVideo();
 }
 
 function playVideo() {
+	// Creating video queue
+	createVideoQueue();
+
 	// Getting video element
 	var videoPlayer = document.getElementById("video");
 	
 	// Adding on ended event; progresses to next video in queue
-	var queueIndex = 0;
 	videoPlayer.onended = function() {
 		queueIndex++;
 		if(queueIndex < videoQueue.length) {
@@ -494,11 +519,12 @@ function playVideo() {
 	}
 
 	// Setting source of video element to first video
-	videoPlayer.src = videoQueue[0];
+	videoPlayer.src = videoQueue[queueIndex];
 
 	// Playing video
 	videoPlayer.play();
-	
+	movePlayhead(queueIndex);
+	isPlaying = true;
 }
 
 function stopVideo() {
@@ -507,13 +533,14 @@ function stopVideo() {
 	videoPlayer.src = videoQueue[0];
 
 	movePlayhead(0);
+	isPlaying = false;
 }
 
 function drawPlayhead() {
 	playhead.set({
   		originY: "center",
 		originX: "center",
-    	radius: tileSize, left: tileWrapper / 2, top: c.height * 0.5, fill: playheadColor
+    	radius: tileSize, left: tileWrapper / 2, top: c.height * timelineTopRatio, fill: playheadColor
   	});
   	playhead.set('shadow', new fabric.Shadow({
 		blur: 10,

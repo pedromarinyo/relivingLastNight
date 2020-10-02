@@ -18,6 +18,26 @@
 			  	padding: 10px 2% 10px;
 			  	width: 96%;
 			}
+
+			#instructions {
+				position: absolute;
+				width: 15%;
+				padding: 2.5%;
+				top: 0px;
+				left: 0px;
+				color: #ccc;
+				text-align: left;
+				
+			}
+			#instructions span {
+				font-style: italic;	
+				color: #fff;			
+			}
+			#instructions #title {
+				font-style: italic bold;
+				font-size: 18pt;
+				color: #fff;
+			}
 			
 			video {
 				width: 60%;
@@ -43,6 +63,13 @@
 
 	<body onload="init()">
 		<input type="file" id="file-selector">
+		<div id="instructions">
+			<span id="title">Reliving Last Night</span><br>
+			by Sarah Cooper<br><br><br><br>	
+			<span>Slide</span> columns to select choices. <br><br>
+			<span>Doubleclick</span> to jump to a scene. <br><br>
+			<span>Refresh</span> to resize timeline.
+		</div>
 		<div><video id="video"></video></div>
 		<canvas id="canvas"></canvas>
 	</body>
