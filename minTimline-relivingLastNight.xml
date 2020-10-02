@@ -367,7 +367,7 @@
 
 						<condition>
 							<choiceID>1</choiceID>
-							<choiceChosen>0</choiceChosen>
+							<choiceChosen>1</choiceChosen>
 						</condition>		
 
 						<condition>
@@ -387,7 +387,7 @@
 
 						<condition>
 							<choiceID>1</choiceID>
-							<choiceChosen>1</choiceChosen>
+							<choiceChosen>0</choiceChosen>
 						</condition>
 
 						<condition>
