@@ -358,26 +358,6 @@
 				Choice of video depends on choiceChosen for given choiceID -->
 				<videos>
 					<video>
-						<path>./assets/videos/ICVG.mp4</path>
-						
-						<condition>
-							<choiceID>0</choiceID>
-							<choiceChosen>1</choiceChosen>
-						</condition>
-
-						<condition>
-							<choiceID>1</choiceID>
-							<choiceChosen>1</choiceChosen>
-						</condition>		
-
-						<condition>
-							<choiceID>2</choiceID>
-							<choiceChosen>0</choiceChosen>
-						</condition>		
-
-					</video>
-
-					<video>
 						<path>./assets/videos/ICCG.mp4</path>
 						
 						<condition>
@@ -388,6 +368,26 @@
 						<condition>
 							<choiceID>1</choiceID>
 							<choiceChosen>0</choiceChosen>
+						</condition>		
+
+						<condition>
+							<choiceID>2</choiceID>
+							<choiceChosen>0</choiceChosen>
+						</condition>		
+
+					</video>
+
+					<video>
+						<path>./assets/videos/ICVG.mp4</path>
+						
+						<condition>
+							<choiceID>0</choiceID>
+							<choiceChosen>1</choiceChosen>
+						</condition>
+
+						<condition>
+							<choiceID>1</choiceID>
+							<choiceChosen>1</choiceChosen>
 						</condition>
 
 						<condition>
@@ -448,6 +448,44 @@
 				Choice of video depends on choiceChosen for given choiceID -->
 				<videos>
 					<video>
+						<path>./assets/videos/ICCK.mp4</path>
+						
+						<condition>
+							<choiceID>0</choiceID>
+							<choiceChosen>1</choiceChosen>
+						</condition>
+
+						<condition>
+							<choiceID>1</choiceID>
+							<choiceChosen>0</choiceChosen>
+						</condition>						
+
+						<condition>
+							<choiceID>2</choiceID>
+							<choiceChosen>1</choiceChosen>
+						</condition>		
+					</video>
+
+					<video>
+						<path>./assets/videos/ICCK.mp4</path> <!-- ICVK -->
+						
+						<condition>
+							<choiceID>0</choiceID>
+							<choiceChosen>1</choiceChosen>
+						</condition>
+
+						<condition>
+							<choiceID>1</choiceID>
+							<choiceChosen>1</choiceChosen>
+						</condition>						
+
+						<condition>
+							<choiceID>2</choiceID>
+							<choiceChosen>1</choiceChosen>
+						</condition>		
+					</video>
+
+					<video>
 						<path>./assets/videos/IDCK.mp4</path>
 						
 						<condition>
@@ -485,8 +523,23 @@
 						</condition>		
 					</video>
 
+				
+				</videos>	
+
+				<choiceID>2</choiceID>
+				<choiceChosen>1</choiceChosen>			
+			</choice>
+
+			<choice>
+				<name>Jazz</name>
+				<!-- File path to tile's icon -->
+				<iconPath>./assets/images/RLN_jazz_large.png</iconPath>
+				
+				<!-- A list of videos to play when arriving at this tile. 
+				Choice of video depends on choiceChosen for given choiceID -->
+				<videos>
 					<video>
-						<path>./assets/videos/ICCK.mp4</path>
+						<path>./assets/videos/ICCJ.mp4</path>
 						
 						<condition>
 							<choiceID>0</choiceID>
@@ -496,16 +549,17 @@
 						<condition>
 							<choiceID>1</choiceID>
 							<choiceChosen>0</choiceChosen>
-						</condition>						
+						</condition>		
 
 						<condition>
 							<choiceID>2</choiceID>
-							<choiceChosen>1</choiceChosen>
+							<choiceChosen>2</choiceChosen>
 						</condition>		
+
 					</video>
 
 					<video>
-						<path>./assets/videos/ICVK.mp4</path>
+						<path>./assets/videos/ICVJ.mp4</path>
 						
 						<condition>
 							<choiceID>0</choiceID>
@@ -515,19 +569,55 @@
 						<condition>
 							<choiceID>1</choiceID>
 							<choiceChosen>1</choiceChosen>
-						</condition>						
+						</condition>
 
 						<condition>
 							<choiceID>2</choiceID>
-							<choiceChosen>1</choiceChosen>
-						</condition>		
-					</video>
+							<choiceChosen>2</choiceChosen>
+						</condition>							
+					</video>	
 
-				
+					<video>
+						<path>./assets/videos/IDCJ.mp4</path>
+						
+						<condition>
+							<choiceID>0</choiceID>
+							<choiceChosen>0</choiceChosen>
+						</condition>
+
+						<condition>
+							<choiceID>1</choiceID>
+							<choiceChosen>0</choiceChosen>
+						</condition>
+
+						<condition>
+							<choiceID>2</choiceID>
+							<choiceChosen>2</choiceChosen>
+						</condition>							
+					</video>				
+
+					<video>
+						<path>./assets/videos/IDCJ.mp4</path> <!-- IDVJ -->
+						
+						<condition>
+							<choiceID>0</choiceID>
+							<choiceChosen>0</choiceChosen>
+						</condition>
+
+						<condition>
+							<choiceID>1</choiceID>
+							<choiceChosen>1</choiceChosen>
+						</condition>
+
+						<condition>
+							<choiceID>2</choiceID>
+							<choiceChosen>2</choiceChosen>
+						</condition>							
+					</video>	
 				</videos>	
 
 				<choiceID>2</choiceID>
-				<choiceChosen>0</choiceChosen>			
+				<choiceChosen>2</choiceChosen>			
 			</choice>
 
 		</choices>
