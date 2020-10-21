@@ -1,12 +1,9 @@
 <timeline>
-
 	<tile>
 		<!-- Specifies type of tile, either static or choice -->
-		<type>static</type>		
-		
+		<type>static</type>
 		<!-- File path to tile's icon -->
 		<name>Awakening</name>
-
 		<!-- A list of videos to play when arriving at this tile. -->
 		<!-- Choice of video depends on choiceChosen for given choiceID -->
 		<videos>
@@ -16,13 +13,10 @@
 		</videos>
 	</tile>
 
-	<tile>
-		<!-- Specifies type of tile, either static or choice -->
-		<type>static</type>		
-		
+	<tile><!-- Specifies type of tile, either static or choice -->
+		<type>static</type>
 		<!-- File path to tile's icon -->
 		<name>A Choice of Dress</name>
-
 		<!-- A list of videos to play when arriving at this tile. -->
 		<!-- Choice of video depends on choiceChosen for given choiceID -->
 		<videos>
@@ -33,76 +27,53 @@
 	</tile>
 
 	<tile>
-		<type>choice</type>	
-		
+		<type>choice</type>
 		<!-- File path to tile's icon -->
 		<name>Greeting Nick</name>
-
-		 <!-- A list of choices to be arranged vertically --> 
+		<!-- A list of choices to be arranged vertically -->
 		<choices>
 			<choice>
 				<name>Dress</name>
 				<!-- File path to tile's icon -->
 				<iconPath>./assets/images/RLN_dress_large.png</iconPath>
-				
-				<!-- A list of videos to play when arriving at this tile. 
-				Choice of video depends on choiceChosen for given choiceID -->
+				<!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID -->
 				<videos>
 					<video>
 						<path>./assets/videos/BCLOTHED.mp4</path>
-						
 						<condition>
 							<choiceID>0</choiceID>
 							<choiceChosen>0</choiceChosen>
 						</condition>
-						
 					</video>
-
-					
-
-				</videos>	
-
+				</videos>
 				<choiceID>0</choiceID>
 				<choiceChosen>0</choiceChosen>
-			
 			</choice>
-
 			<choice>
 				<name>Sweater</name>
 				<!-- File path to tile's icon -->
 				<iconPath>./assets/images/RLN_sweater_large.png</iconPath>
-				
-				<!-- A list of videos to play when arriving at this tile. 
-				Choice of video depends on choiceChosen for given choiceID -->
+				<!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID -->
 				<videos>
 					<video>
 						<path>./assets/videos/BCLOTHEC.mp4</path>
-						
 						<condition>
 							<choiceID>0</choiceID>
 							<choiceChosen>1</choiceChosen>
 						</condition>
-						
 					</video>
-
-					
-
 				</videos>
-
 				<choiceID>0</choiceID>
-				<choiceChosen>1</choiceChosen>			
+				<choiceChosen>1</choiceChosen>
 			</choice>
-
 		</choices>
 	</tile>
 
 	<tile>
 		<!-- Specifies type of tile, either static or choice -->
-		<type>static</type>		
-		
+		<type>static</type>
 		<!-- File path to tile's icon -->
 		<name>A Choice of Drink</name>
-		
 		<!-- A list of videos to play when arriving at this tile. -->
 		<!-- Choice of video depends on choiceChosen for given choiceID -->
 		<videos>
@@ -113,7 +84,6 @@
 					<choiceChosen>0</choiceChosen>
 				</condition>
 			</video>
-
 			<video>
 				<path>./assets/videos/CDRINKC.mp4</path>
 				<condition>
@@ -126,111 +96,82 @@
 
 	<tile>
 		<type>choice</type>	
-		
 		<!-- File path to tile's icon -->
 		<name>Picking a Drink</name>
-
-
-		 <!-- A list of choices to be arranged vertically --> 
+		<!-- A list of choices to be arranged vertically -->
 		<choices>
 			<choice>
 				<name>Coke</name>
 				<!-- File path to tile's icon -->
 				<iconPath>./assets/images/RLN_coke_large.png</iconPath>
-				
-				<!-- A list of videos to play when arriving at this tile. 
-				Choice of video depends on choiceChosen for given choiceID -->
+				<!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID -->
 				<videos>
 					<video>
 						<path>./assets/videos/DDRINKDC.mp4</path>
-						
 						<condition>
 							<choiceID>0</choiceID>
 							<choiceChosen>0</choiceChosen>
 						</condition>
-
 						<condition>
 							<choiceID>1</choiceID>
 							<choiceChosen>0</choiceChosen>
-						</condition>						
+						</condition>
 					</video>
-
 					<video>
 						<path>./assets/videos/DDRINKCC.mp4</path>
-						
 						<condition>
 							<choiceID>0</choiceID>
 							<choiceChosen>1</choiceChosen>
 						</condition>
-
 						<condition>
 							<choiceID>1</choiceID>
 							<choiceChosen>0</choiceChosen>
-						</condition>						
+						</condition>
 					</video>
-
-					
-				</videos>	
-
+				</videos>
 				<choiceID>1</choiceID>
 				<choiceChosen>0</choiceChosen>
-			
 			</choice>
-
 			<choice>
 				<name>Vodka</name>
 				<!-- File path to tile's icon -->
 				<iconPath>./assets/images/RLN_vodka_large.png</iconPath>
-				
-				<!-- A list of videos to play when arriving at this tile. 
-				Choice of video depends on choiceChosen for given choiceID -->
+				<!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID -->
 				<videos>
 					<video>
 						<path>./assets/videos/DDRINKDV.mp4</path>
-						
 						<condition>
 							<choiceID>0</choiceID>
 							<choiceChosen>0</choiceChosen>
 						</condition>
-
 						<condition>
 							<choiceID>1</choiceID>
 							<choiceChosen>1</choiceChosen>
-						</condition>						
+						</condition>
 					</video>
-
 					<video>
 						<path>./assets/videos/DDRINKCV.mp4</path>
-						
 						<condition>
 							<choiceID>0</choiceID>
 							<choiceChosen>1</choiceChosen>
 						</condition>
-
 						<condition>
 							<choiceID>1</choiceID>
 							<choiceChosen>1</choiceChosen>
-						</condition>						
+						</condition>
 					</video>
-
-					
-				</videos>	
-
+				</videos>
 				<choiceID>1</choiceID>
 				<choiceChosen>1</choiceChosen>
-			
 			</choice>
-
 		</choices>
 	</tile>
 
 	<tile>
 		<!-- Specifies type of tile, either static or choice -->
-		<type>static</type>		
-		
+		<type>static</type>
 		<!-- File path to tile's icon -->
 		<name>Chatting</name>
-		
 		<!-- A list of videos to play when arriving at this tile. -->
 		<!-- Choice of video depends on choiceChosen for given choiceID -->
 		<videos>
@@ -239,26 +180,23 @@
 				<condition>
 					<choiceID>0</choiceID>
 					<choiceChosen>0</choiceChosen>
-				</condition>				
+				</condition>
 			</video>
-
 			<video>
 				<path>./assets/videos/ECHATC.mp4</path>
 				<condition>
 					<choiceID>0</choiceID>
 					<choiceChosen>1</choiceChosen>
-				</condition>				
+				</condition>
 			</video>
 		</videos>
 	</tile>
 
 	<tile>
 		<!-- Specifies type of tile, either static or choice -->
-		<type>static</type>		
-		
+		<type>static</type>
 		<!-- File path to tile's icon -->
 		<name>More Chatting</name>
-		
 		<!-- A list of videos to play when arriving at this tile. -->
 		<!-- Choice of video depends on choiceChosen for given choiceID -->
 		<videos>
@@ -267,58 +205,53 @@
 				<condition>
 					<choiceID>0</choiceID>
 					<choiceChosen>1</choiceChosen>
-				</condition>				
+				</condition>
 				<condition>
 					<choiceID>1</choiceID>
 					<choiceChosen>0</choiceChosen>
-				</condition>				
+				</condition>
 			</video>
-
 			<video>
 				<path>./assets/videos/FCHATCV.mp4</path>
 				<condition>
 					<choiceID>0</choiceID>
 					<choiceChosen>1</choiceChosen>
-				</condition>				
+				</condition>
 				<condition>
 					<choiceID>1</choiceID>
 					<choiceChosen>1</choiceChosen>
-				</condition>				
+				</condition>
 			</video>
-
 			<video>
 				<path>./assets/videos/FCHATDC.mp4</path>
 				<condition>
 					<choiceID>0</choiceID>
 					<choiceChosen>0</choiceChosen>
-				</condition>				
+				</condition>
 				<condition>
 					<choiceID>1</choiceID>
 					<choiceChosen>0</choiceChosen>
-				</condition>				
+				</condition>
 			</video>
-
 			<video>
 				<path>./assets/videos/FCHATDV.mp4</path>
 				<condition>
 					<choiceID>0</choiceID>
 					<choiceChosen>0</choiceChosen>
-				</condition>				
+				</condition>
 				<condition>
 					<choiceID>1</choiceID>
 					<choiceChosen>1</choiceChosen>
-				</condition>				
+				</condition>
 			</video>
 		</videos>
 	</tile>
 
 	<tile>
 		<!-- Specifies type of tile, either static or choice -->
-		<type>static</type>		
-		
+		<type>static</type>
 		<!-- File path to tile's icon -->
 		<name>A Choice of Music</name>
-		
 		<!-- A list of videos to play when arriving at this tile. -->
 		<!-- Choice of video depends on choiceChosen for given choiceID -->
 		<videos>
@@ -327,222 +260,249 @@
 				<condition>
 					<choiceID>0</choiceID>
 					<choiceChosen>1</choiceChosen>
-				</condition>				
+				</condition>
 			</video>
-
 			<video>
 				<path>./assets/videos/GMUSICD.mp4</path>
 				<condition>
 					<choiceID>0</choiceID>
 					<choiceChosen>0</choiceChosen>
-				</condition>				
+				</condition>
 			</video>
 		</videos>
 	</tile>
 
 	<tile>
-		<type>choice</type>	
-		
+		<type>choice</type>
 		<!-- File path to tile's icon -->
 		<name>Picking Music</name>
-
-
-		 <!-- A list of choices to be arranged vertically --> 
+		<!-- A list of choices to be arranged vertically -->
 		<choices>
 			<choice>
 				<name>Gigolo</name>
 				<!-- File path to tile's icon -->
 				<iconPath>./assets/images/RLN_gigolo_large.png</iconPath>
-				
-				<!-- A list of videos to play when arriving at this tile. 
-				Choice of video depends on choiceChosen for given choiceID -->
+				<!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID -->
 				<videos>
 					<video>
-						<path>./assets/videos/ICVG.mp4</path>
-						
-						<condition>
-							<choiceID>0</choiceID>
-							<choiceChosen>1</choiceChosen>
-						</condition>
-
-						<condition>
-							<choiceID>1</choiceID>
-							<choiceChosen>0</choiceChosen>
-						</condition>		
-
-						<condition>
-							<choiceID>2</choiceID>
-							<choiceChosen>0</choiceChosen>
-						</condition>		
-
-					</video>
-
-					<video>
 						<path>./assets/videos/ICCG.mp4</path>
-						
 						<condition>
 							<choiceID>0</choiceID>
 							<choiceChosen>1</choiceChosen>
 						</condition>
-
+						<condition>
+							<choiceID>1</choiceID>
+							<choiceChosen>0</choiceChosen>
+						</condition>
+						<condition>
+							<choiceID>2</choiceID>
+							<choiceChosen>0</choiceChosen>
+						</condition>
+					</video>
+					<video>
+						<path>./assets/videos/ICVG.mp4</path>
+						<condition>
+							<choiceID>0</choiceID>
+							<choiceChosen>1</choiceChosen>
+						</condition>
 						<condition>
 							<choiceID>1</choiceID>
 							<choiceChosen>1</choiceChosen>
 						</condition>
-
 						<condition>
 							<choiceID>2</choiceID>
 							<choiceChosen>0</choiceChosen>
-						</condition>							
-					</video>	
-
+						</condition>
+					</video>
 					<video>
 						<path>./assets/videos/IDCG.mp4</path>
-						
 						<condition>
 							<choiceID>0</choiceID>
 							<choiceChosen>0</choiceChosen>
 						</condition>
-
 						<condition>
 							<choiceID>1</choiceID>
-							<choiceChosen>1</choiceChosen>
+							<choiceChosen>0</choiceChosen>
 						</condition>
-
 						<condition>
 							<choiceID>2</choiceID>
 							<choiceChosen>0</choiceChosen>
-						</condition>							
-					</video>				
-
+						</condition>
+					</video>
 					<video>
 						<path>./assets/videos/IDVG.mp4</path>
-						
 						<condition>
 							<choiceID>0</choiceID>
 							<choiceChosen>0</choiceChosen>
 						</condition>
-
 						<condition>
 							<choiceID>1</choiceID>
 							<choiceChosen>1</choiceChosen>
 						</condition>
-
 						<condition>
 							<choiceID>2</choiceID>
 							<choiceChosen>0</choiceChosen>
-						</condition>							
-					</video>	
-				</videos>	
-
+						</condition>
+					</video>
+				</videos>
 				<choiceID>2</choiceID>
-				<choiceChosen>0</choiceChosen>			
+				<choiceChosen>0</choiceChosen>
 			</choice>
-
 			<choice>
 				<name>Kiss</name>
 				<!-- File path to tile's icon -->
 				<iconPath>./assets/images/RLN_kiss_large.png</iconPath>
-				
-				<!-- A list of videos to play when arriving at this tile. 
-				Choice of video depends on choiceChosen for given choiceID -->
+				<!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID -->
 				<videos>
 					<video>
-						<path>./assets/videos/IDCK.mp4</path>
-						
+						<path>./assets/videos/ICCK.mp4</path>
 						<condition>
 							<choiceID>0</choiceID>
-							<choiceChosen>0</choiceChosen>
+							<choiceChosen>1</choiceChosen>
 						</condition>
-
 						<condition>
 							<choiceID>1</choiceID>
 							<choiceChosen>0</choiceChosen>
-						</condition>						
-
-						<condition>
-							<choiceID>2</choiceID>
-							<choiceChosen>1</choiceChosen>
-						</condition>		
-					</video>
-
-					<video>
-						<path>./assets/videos/IDVK.mp4</path>
-						
-						<condition>
-							<choiceID>0</choiceID>
-							<choiceChosen>0</choiceChosen>
 						</condition>
-
-						<condition>
-							<choiceID>1</choiceID>
-							<choiceChosen>1</choiceChosen>
-						</condition>						
-
 						<condition>
 							<choiceID>2</choiceID>
 							<choiceChosen>1</choiceChosen>
-						</condition>		
+						</condition>
 					</video>
-
 					<video>
 						<path>./assets/videos/ICCK.mp4</path>
-						
+						<!-- ICVK -->
 						<condition>
 							<choiceID>0</choiceID>
 							<choiceChosen>1</choiceChosen>
 						</condition>
-
+						<condition>
+							<choiceID>1</choiceID>
+							<choiceChosen>1</choiceChosen>
+						</condition>
+						<condition>
+							<choiceID>2</choiceID>
+							<choiceChosen>1</choiceChosen>
+						</condition>
+					</video>
+					<video>
+						<path>./assets/videos/IDCK.mp4</path>
+						<condition><choiceID>0</choiceID>
+						<choiceChosen>0</choiceChosen>
+						</condition>
 						<condition>
 							<choiceID>1</choiceID>
 							<choiceChosen>0</choiceChosen>
-						</condition>						
-
+						</condition>
 						<condition>
 							<choiceID>2</choiceID>
 							<choiceChosen>1</choiceChosen>
-						</condition>		
+						</condition>
 					</video>
-
 					<video>
-						<path>./assets/videos/ICVK.mp4</path>
-						
+						<path>./assets/videos/IDVK.mp4</path>
+						<condition>
+							<choiceID>0</choiceID>
+							<choiceChosen>0</choiceChosen>
+						</condition>
+						<condition>
+							<choiceID>1</choiceID>
+							<choiceChosen>1</choiceChosen>
+						</condition>
+						<condition>
+							<choiceID>2</choiceID>
+							<choiceChosen>1</choiceChosen>
+						</condition>
+					</video>
+				</videos>
+				<choiceID>2</choiceID>
+				<choiceChosen>1</choiceChosen>
+			</choice>
+
+			<choice>
+				<name>Jazz</name>
+				<!-- File path to tile's icon -->
+				<iconPath>./assets/images/RLN_jazz_large.png</iconPath>
+				<!-- A list of videos to play when arriving at this tile. Choice of video depends on choiceChosen for given choiceID -->
+				<videos>
+					<video>
+						<path>./assets/videos/ICCJ.mp4</path>
 						<condition>
 							<choiceID>0</choiceID>
 							<choiceChosen>1</choiceChosen>
 						</condition>
-
+						<condition>
+							<choiceID>1</choiceID>
+							<choiceChosen>0</choiceChosen>
+						</condition>
+						<condition>
+							<choiceID>2</choiceID>
+							<choiceChosen>2</choiceChosen>
+						</condition>
+					</video>
+					<video>
+						<path>./assets/videos/ICVJ.mp4</path>
+						<condition>
+							<choiceID>0</choiceID>
+							<choiceChosen>1</choiceChosen>
+						</condition>
 						<condition>
 							<choiceID>1</choiceID>
 							<choiceChosen>1</choiceChosen>
-						</condition>						
-
+						</condition>
 						<condition>
 							<choiceID>2</choiceID>
-							<choiceChosen>1</choiceChosen>
-						</condition>		
+							<choiceChosen>2</choiceChosen>
+						</condition>
 					</video>
-
-				
-				</videos>	
-
+					<video>
+						<path>./assets/videos/IDCJ.mp4</path>
+						<condition>
+							<choiceID>0</choiceID>
+							<choiceChosen>0</choiceChosen>
+						</condition>
+						<condition>
+							<choiceID>1</choiceID>
+							<choiceChosen>0</choiceChosen>
+						</condition>
+						<condition>
+							<choiceID>2</choiceID>
+							<choiceChosen>2</choiceChosen>
+						</condition>
+					</video>
+					<video>
+						<path>./assets/videos/IDCJ.mp4</path>
+						<!-- IDVJ -->
+						<condition>
+							<choiceID>0</choiceID>
+							<choiceChosen>0</choiceChosen>
+						</condition>
+						<condition>
+							<choiceID>1</choiceID>
+							<choiceChosen>1</choiceChosen>
+						</condition>
+						<condition>
+							<choiceID>2</choiceID>
+							<choiceChosen>2</choiceChosen>
+						</condition>
+					</video>
+				</videos>
 				<choiceID>2</choiceID>
-				<choiceChosen>0</choiceChosen>			
+				<choiceChosen>2</choiceChosen>
 			</choice>
-
 		</choices>
 	</tile>
 
 	<tile>
 		<!-- Specifies type of tile, either static or choice -->
-		<type>static</type>		
-		
+		<type>static</type>
 		<!-- File path to tile's icon -->
 		<name>Finale</name>
-		
 		<!-- A list of videos to play when arriving at this tile. -->
 		<!-- Choice of video depends on choiceChosen for given choiceID -->
 		<videos>
+			<!-- Andre -->
+			<!-- Dress, Coke, Kiss -->
 			<video>
 				<path>./assets/videos/JFINALEA.mp4</path>
 				<condition>
@@ -552,65 +512,187 @@
 				<condition>
 					<choiceID>1</choiceID>
 					<choiceChosen>0</choiceChosen>
-				</condition>				
+				</condition>			
+				<condition>
+					<choiceID>2</choiceID>
+					<choiceChosen>1</choiceChosen>
+				</condition>
 			</video>
-
+			<!-- Dress, *, Gigolo -->
+			<video>
+				<path>./assets/videos/JFINALEA.mp4</path>
+				<condition>
+					<choiceID>0</choiceID>
+					<choiceChosen>0</choiceChosen>
+				</condition>				
+				<condition>
+					<choiceID>2</choiceID>
+					<choiceChosen>0</choiceChosen>
+				</condition>
+			</video>
+			<!-- Nick -->
+			<!-- Casual, Vodka, Kiss -->
 			<video>
 				<path>./assets/videos/JFINALEN.mp4</path>
 				<condition>
 					<choiceID>0</choiceID>
 					<choiceChosen>1</choiceChosen>
-				</condition>				
-				<condition>
-					<choiceID>2</choiceID>
-					<choiceChosen>0</choiceChosen>
-				</condition>	
-			</video>
-
-			<video>
-				<path>./assets/videos/JFINALEC.mp4</path>
-				<condition>
-					<choiceID>0</choiceID>
-					<choiceChosen>1</choiceChosen>
-				</condition>				
-				<condition>
-					<choiceID>2</choiceID>
-					<choiceChosen>1</choiceChosen>
-				</condition>	
-			</video>
-
-			<video>
-				<path>./assets/videos/JFINALEC.mp4</path>
-				<condition>
-					<choiceID>0</choiceID>
-					<choiceChosen>0</choiceChosen>
-				</condition>				
+				</condition>
 				<condition>
 					<choiceID>1</choiceID>
 					<choiceChosen>1</choiceChosen>
-				</condition>	
+				</condition>
+				<condition>
+					<choiceID>2</choiceID>
+					<choiceChosen>1</choiceChosen>
+				</condition>
+			</video>
+			<!-- Casual, Vodka, Gigolo -->
+			<video>
+				<path>./assets/videos/JFINALEN.mp4</path>
+				<condition>
+					<choiceID>0</choiceID>
+					<choiceChosen>1</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>1</choiceID>
+					<choiceChosen>1</choiceChosen>
+				</condition>
 				<condition>
 					<choiceID>2</choiceID>
 					<choiceChosen>0</choiceChosen>
-				</condition>	
+				</condition>
 			</video>
-
+			<!-- Casual, Coke, Kiss -->
+			<video>
+				<path>./assets/videos/JFINALEN.mp4</path>
+				<condition>
+					<choiceID>0</choiceID>
+					<choiceChosen>1</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>1</choiceID>
+					<choiceChosen>0</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>2</choiceID>
+					<choiceChosen>1</choiceChosen>
+				</condition>
+			</video>
+			<!-- Casual, Coke, Jazz -->
+			<video>
+				<path>./assets/videos/JFINALEN.mp4</path>
+				<condition>
+					<choiceID>0</choiceID>
+					<choiceChosen>1</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>1</choiceID>
+					<choiceChosen>0</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>2</choiceID>
+					<choiceChosen>2</choiceChosen>
+				</condition>
+			</video>
+			<!-- Casual, Coke, Gigolo -->
+			<video>
+				<path>./assets/videos/JFINALEN.mp4</path>
+				<condition>
+					<choiceID>0</choiceID>
+					<choiceChosen>1</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>1</choiceID>
+					<choiceChosen>0</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>2</choiceID>
+					<choiceChosen>0</choiceChosen>
+				</condition>
+			</video>
+			<!-- Cat -->
+			<!-- Dress, Coke, Jazz -->
+			<video>
+				<path>./assets/videos/JFINALEC.mp4</path>
+				<condition>
+					<choiceID>0</choiceID>
+					<choiceChosen>0</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>1</choiceID>
+					<choiceChosen>0</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>2</choiceID>
+					<choiceChosen>2</choiceChosen>
+				</condition>
+			</video>
+			<!-- Dress, Vodka, Jazz -->
+			<video>
+				<path>./assets/videos/JFINALEC.mp4</path>
+				<condition>
+					<choiceID>0</choiceID>
+					<choiceChosen>0</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>1</choiceID>
+					<choiceChosen>1</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>2</choiceID>
+					<choiceChosen>2</choiceChosen>
+				</condition>
+			</video>
+			<!-- Dress, Vodka, Gigolo -->
+			<video>
+				<path>./assets/videos/JFINALEC.mp4</path>
+				<condition>
+					<choiceID>0</choiceID>
+					<choiceChosen>0</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>1</choiceID>
+					<choiceChosen>1</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>2</choiceID>
+					<choiceChosen>0</choiceChosen>
+				</condition>
+			</video>
+			<!-- Nick and Andre -->
+			<!-- Dress, Vodka, Kiss -->
 			<video>
 				<path>./assets/videos/JFINALENA.mp4</path>
 				<condition>
 					<choiceID>0</choiceID>
 					<choiceChosen>0</choiceChosen>
-				</condition>				
+				</condition>
 				<condition>
 					<choiceID>1</choiceID>
 					<choiceChosen>1</choiceChosen>
-				</condition>	
+				</condition>
 				<condition>
 					<choiceID>2</choiceID>
 					<choiceChosen>1</choiceChosen>
-				</condition>	
+				</condition>
+			</video>
+			<!-- Casual, Vodka, Jazz -->
+			<video>
+				<path>./assets/videos/JFINALENA.mp4</path>
+				<condition>
+					<choiceID>0</choiceID>
+					<choiceChosen>1</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>1</choiceID>
+					<choiceChosen>1</choiceChosen>
+				</condition>
+				<condition>
+					<choiceID>2</choiceID>
+					<choiceChosen>2</choiceChosen>
+				</condition>
 			</video>
 		</videos>
 	</tile>
-
 </timeline>
