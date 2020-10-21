@@ -44,7 +44,7 @@ function init(){
 		
 		document.getElementById("file-selector").style.display = "none";
 		
-		document.getElementById("video").height = window.innerHeight / 2;
+		document.getElementById("video").height = (window.innerHeight / 2);
 		document.getElementById("video").style.display = "block";
 
 		// Parse XML Timeline
