@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            html, body {
+                width:  100%;
+                height: 100%;
+                margin: 0px;
+                padding: 0px;
+                background-color: #35586C;                                
+                text-align: left;
+            }
+
+            #instructions {                                
+                padding: 2.5%;
+                top: 0px;
+                left: 0px;
+                color: #ccc;
+                text-align: left;                
+            }
+            span {
+                font-style: italic; 
+                color: #fff;  
+                display: block;  
+                font-size: 14pt;          
+            }
+            #instructions #title {
+                font-style: bold;
+                font-size: 32pt;
+                color: #fff;
+            }
+
+            .staticTile {
+                padding: 0% 5%;
+                width: 40%;
+                color: #ccc;
+                text-align: left;  
+                display: inline-block;
+            }
+
+            .media {
+                margin-left: 5%; 
+            }
+
+            .condition {
+                margin: 2.5% 5%;
+                padding: 5%;
+                background-color: #444; 
+                box-shadow: 0px 0px 20px #333;
+            }
+
+            .delete {
+                width: 5%; 
+                height: 5%;
+                padding: 2.5%;
+                margin-left: 90%;
+                background-color: red; 
+                cursor: pointer;
+                box-shadow: 0px 0px 20px #333;
+            }
+
+            input {
+                margin-bottom: 10px;
+                display: block; 
+            }
+            .radio {
+                display: inline-block;
+            }
+
+        </style>        
+
+        <script type="text/javascript">
+            // Function to download data to a file
+            function download(data, filename, type) {
+                var file = new Blob([data], {type: type});
+                if (window.navigator.msSaveOrOpenBlob) // IE10+
+                    window.navigator.msSaveOrOpenBlob(file, filename);
+                else { // Others
+                    var a = document.createElement("a"),
+                            url = URL.createObjectURL(file);
+                    a.href = url;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    setTimeout(function() {
+                        document.body.removeChild(a);
+                        window.URL.revokeObjectURL(url);  
+                    }, 0); 
+                }
+            }
+
+            // Function to create xml from html input
+            function createXML(){
+
+            }
+
+
+            // Add a static tile
+
+            // Add a choice tile
+
+            // Adding condition to media
+            function addCondition() {
+
+                var node = document.createElement("div");
+                node.innerHTML = '<div class="condition"><div class="delete" onclick="removeCondition(this.parentElement)"></div><span>Condition</span>Choice Number<input type="text" name="condition-choiceNumber">Choice Selected<input type="text" name="tile-condition-selected"></div>';
+                document.getElementById("conditions").appendChild(node);
+            }
+
+            function removeCondition (condition) {
+                condition.remove();
+            }
+
+
+        </script>
+        
+    </head>
+
+    <body>
+        <div id="instructions">
+            <div id="title">Create a Timeline</div>            
+        </div>
+
+        <div id="timeline">
+            
+        </div>
+
+        <div class="staticTile">
+            <!-- Name -->
+            <span>Tile Name</span>
+            <input type="text" name="tile1-name">
+            
+            <!-- Video or Image path-->
+            <div class="media">
+                <span>Media Type</span>
+                Video<input type="radio" name="mediaType" value="video" class="radio">
+                Image<input type="radio" name="mediaType" value="image" class="radio"><br>
+                <span>Media Path</span>
+                <input type="text" name="tile1-mediaPath">
+
+                <!-- Conditions -->
+                <div id="conditions"></div>
+                <button onclick="addCondition()">Add Condition</button>
+                    
+                
+            </div>
+
+
+        </div>
+
+    </body>
+
+</html>
+
