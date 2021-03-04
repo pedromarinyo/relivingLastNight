@@ -20,8 +20,9 @@
 			}
 
 			#instructions {
+				font-family: Georgia, serif;
 				position: absolute;
-				width: 15%;
+				width: 13%;
 				padding: 2.5%;
 				top: 0px;
 				left: 0px;
@@ -34,19 +35,22 @@
 				color: #fff;			
 			}
 			#instructions #title {
-				font-style: italic bold;
-				font-size: 18pt;
+				font-style: italic;
+				font-size: 22pt;
 				color: #fff;
+				margin-bottom: 10px;
 			}
 			
 			video {
-				width: 55%;
-				margin-left: 22.5%;							
+				width: 64%;
+				/*height: 480px;*/
+				margin: auto;	
+				/*margin-top: 20px;						*/
 				background-color: #000;
 				padding: 0px;
 				box-shadow: 0 0px 180px 0 rgba(0, 0, 0, 0.5), 0 0px 200px 0 rgba(0, 0, 0, 0.5);
 				display: none;
-				border-radius: 25px;				
+				/*border-radius: 25px;				*/
 
 			}
 
@@ -62,15 +66,22 @@
 	</head>
 
 	<body onload="init()">
+		
 		<input type="file" id="file-selector">
+		
 		<div id="instructions">
-			<span id="title">Reliving Last Night</span><br>
-			by Sarah Cooper<br><br><br><br>	
+			<div id="title">Reliving Last Night</div>
+			Written by Sarah Cooper <br>
+			Staring Joel Gooch and Casey Jones<br><br><br>	
 			<span>Slide</span> columns to select choices. <br><br>
-			<span>Doubleclick</span> to jump to a scene. <br><br>
+			<span>Doubleclick</span> a tile to jump to a scene. <br><br>
 			<span>Refresh</span> to resize the timeline.
 		</div>
-		<div><video controls id="video"></video></div>
+		
+		<div class="mediaContainer">
+			<video controls id="video"></video>
+		</div>
+		
 		<canvas id="canvas"></canvas>
 	</body>
 
