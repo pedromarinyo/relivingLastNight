@@ -7,7 +7,7 @@
 				height: 100%;
 				margin: 0px;
 				padding: 0px;
-				background-color: #35586C;
+				background-color: #3a4f4c;
 				
 				text-align: center;
 			}
@@ -22,7 +22,7 @@
 			#instructions {
 				font-family: Georgia, serif;
 				position: absolute;
-				width: 13%;
+				width: 20%;
 				padding: 2.5%;
 				top: 0px;
 				left: 0px;
@@ -36,21 +36,31 @@
 			}
 			#instructions #title {
 				font-style: italic;
-				font-size: 22pt;
+				font-size: 1.8em;
 				color: #fff;
 				margin-bottom: 10px;
 			}
+			#instructions #subtitles {
+				margin-left: 20px;
+				font-size: 1em;
+			}
+
+			.mediaContainer {
+				width: 100%;				
+				background-color: #222; 
+				box-shadow: 0 0px 180px 0 rgba(0, 0, 0, 0.5), 0 0px 200px 0 rgba(0, 0, 0, 0.5);
+			}
 			
 			video {
-				width: 64%;
+				width: 50%;
+				max-width: 100%;
 				/*height: 480px;*/
 				margin: auto;	
 				/*margin-top: 20px;						*/
-				background-color: #000;
+				background-color: #222;
 				padding: 0px;
-				box-shadow: 0 0px 180px 0 rgba(0, 0, 0, 0.5), 0 0px 200px 0 rgba(0, 0, 0, 0.5);
-				display: none;
-				/*border-radius: 25px;				*/
+				/*box-shadow: 0 0px 180px 0 rgba(0, 0, 0, 0.5), 0 0px 200px 0 rgba(0, 0, 0, 0.5);*/
+				display: none;				
 
 			}
 
@@ -71,15 +81,17 @@
 		
 		<div id="instructions">
 			<div id="title">Reliving Last Night</div>
-			Written by Sarah Cooper <br>
-			Staring Joel Gooch and Casey Jones<br><br><br>	
-			<span>Slide</span> columns to select choices. <br><br>
-			<span>Doubleclick</span> a tile to jump to a scene. <br><br>
-			<span>Refresh</span> to resize the timeline.
+			<div id="subtitles">
+				Written by <span>Sarah Cooper</span>;
+				Staring <span>Joel Gooch</span> and <span>Casey Jones</span><br><br><br>	
+				<span>Slide</span> columns to select choices. <br><br>
+				<span>Doubleclick</span> a tile to jump to a scene. <br><br>
+				<span>Refresh</span> to resize the timeline.
+			</div>
 		</div>
 		
 		<div class="mediaContainer">
-			<video controls id="video"></video>
+			<video id="video"></video>
 		</div>
 		
 		<canvas id="canvas"></canvas>
