@@ -328,7 +328,7 @@ function drawPlayStopButton() {
 	var triangle = new fabric.Triangle({
 		originY: "center",
 		originX: "center",
-    	width: 30, height: 30, left: c.width/2 - 50, top: top, fill: '#fff'
+    	width: 30, height: 30, left: c.width/2 - 50, top: top, fill: '#3a4f4c'
   	});
 
   	var circle = new fabric.Circle({
@@ -350,12 +350,7 @@ function drawPlayStopButton() {
   		hoverCursor: "pointer",
 		selectable: false
   	});
-  	triangle.set('shadow', new fabric.Shadow({
-		blur: 10,
-        color: 'rgba(0,0,0,0.5)',
-        offsetX: 10,
-        offsetX: 10
-	}));
+
 
 	
   	c.add(playButton);
@@ -381,14 +376,9 @@ function drawPlayStopButton() {
 	var rect = new fabric.Rect({
   		originY: "center",
 		originX: "center",
-    	width: 25, height: 25, left: c.width/2 + 50, top: top, fill: '#fff'
+    	width: 25, height: 25, left: c.width/2 + 50, top: top, fill: '#3a4f4c'
   	});
-  	rect.set('shadow', new fabric.Shadow({
-		blur: 10,
-        color: 'rgba(0,0,0,0.5)',
-        offsetX: 10,
-        offsetX: 10
-	}));
+
 
 	var stopButton = new fabric.Group([circleStop, rect], {
   		hasBorders: false,
