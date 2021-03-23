@@ -328,13 +328,13 @@ function drawPlayStopButton() {
 	var triangle = new fabric.Triangle({
 		originY: "center",
 		originX: "center",
-    	width: 30, height: 30, left: c.width/2 - 50, top: top, fill: '#3a4f4c'
+    	width: 30, height: 30, left: c.width/2 - 40, top: top, fill: '#3a4f4c'
   	});
 
   	var circle = new fabric.Circle({
   		originY: "center",
 		originX: "center",
-    	radius: 30, left: c.width/2 - 50, top: top, fill: playStopColor
+    	radius: 30, left: c.width/2 - 40, top: top, fill: playStopColor
   	});
   	circle.set('shadow', new fabric.Shadow({
 		blur: 10,
@@ -364,7 +364,7 @@ function drawPlayStopButton() {
 	var circleStop = new fabric.Circle({
   		originY: "center",
 		originX: "center",
-    	radius: 30, left: c.width/2 + 50, top: top, fill: playStopColor
+    	radius: 30, left: c.width/2 + 40, top: top, fill: playStopColor
   	});
   	circleStop.set('shadow', new fabric.Shadow({
 		blur: 10,
@@ -376,7 +376,7 @@ function drawPlayStopButton() {
 	var rect = new fabric.Rect({
   		originY: "center",
 		originX: "center",
-    	width: 25, height: 25, left: c.width/2 + 50, top: top, fill: '#3a4f4c'
+    	width: 25, height: 25, left: c.width/2 + 40, top: top, fill: '#3a4f4c'
   	});
 
 
@@ -495,6 +495,7 @@ function playVideo() {
 
 	// Getting video element
 	var videoPlayer = document.getElementById("video");
+	// $("#video").show();
 	
 	// Adding on ended event; progresses to next video in queue
 	videoPlayer.onended = function() {
@@ -519,10 +520,12 @@ function playVideo() {
 function stopVideo() {
 	var videoPlayer = document.getElementById("video");
 	videoPlayer.pause();
-	videoPlayer.src = videoQueue[0];
-
+	
+	queueIndex = 0;
+	videoPlayer.src = videoQueue[queueIndex];
 	movePlayhead(0);
 	isPlaying = false;
+	// $("#video").hide();
 }
 
 function drawPlayhead() {
